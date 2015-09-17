@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#010000"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Choose tshirt Size"
+        android:id="@+id/title"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textColor="#57ff20"
+        android:textStyle="bold|italic"
+        android:textSize="40sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SMALL"
+        android:id="@+id/small"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#fff81d"
+        android:layout_marginTop="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MEDIUM"
+        android:id="@+id/medium"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#ff201a"
+        android:layout_marginTop="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LARGE"
+        android:id="@+id/large"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#FFFFF81D"
+        android:layout_marginTop="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="X LARGE"
+        android:id="@+id/XLarge"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#ff201a"
+        android:layout_marginTop="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XX LARGE"
+        android:id="@+id/XXLarge"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#FFFFF81D"
+        android:layout_marginTop="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO "
+        android:id="@+id/tshirt_No"
+        android:layout_weight="0.10"
+        android:textSize="30sp"
+        android:background="#ff201a"
+        android:layout_marginTop="20sp" />
+</LinearLayout>

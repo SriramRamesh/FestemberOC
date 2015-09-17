@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FestemberOC</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_qrscanner">QRscanner</string>
+    <string name="title_activity_success">Success</string>
+</resources>
