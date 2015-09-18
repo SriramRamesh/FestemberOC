@@ -21,11 +21,12 @@
         android:text="YES"
         android:id="@+id/fcard_yes"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.2"
+
         android:layout_marginTop="20sp"
         android:textStyle="bold"
         android:textSize="30sp"
-        android:background="#ff9123" />
+        android:background="#ff9123"
+        android:layout_weight="0.2" />
 
     <Button
         android:layout_width="match_parent"
