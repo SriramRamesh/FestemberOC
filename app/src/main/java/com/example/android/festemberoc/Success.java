@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,46 +26,58 @@ import org.json.JSONObject;
 
 public class Success extends Activity {
 
+    ProgressDialog pDialog;
     Button fcard,tshirt;
     TextView roll;
     Boolean fcard_given,tshirt_given,giving_fcard;
-    String auth_pin,user_roll,user_hash,size;
+    String auth_pin,user_roll,user_hash,tshirt_size,size,gender,amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_success);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+
         SharedPreferences sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
         auth_pin=sharedPreferences.getString("auth_pin", null);
         giving_fcard=sharedPreferences.getBoolean("Food", false);
-        size=sharedPreferences.getString("Size", null);
-
+        size=sharedPreferences.getString("Size",null);
         fcard=(Button)findViewById(R.id.fcard);
         tshirt=(Button)findViewById(R.id.tshirt);
-        roll=(TextView)findViewById(R.id.Roll);
 
+        roll=(TextView)findViewById(R.id.Roll);
         if(!giving_fcard){
             fcard.setVisibility(View.INVISIBLE);
             fcard.setClickable(false);
         }
-        if(size.equals("No")){
-            tshirt.setVisibility(View.INVISIBLE);
-            tshirt.setClickable(false);
+        if(gender.equals("male")) {
+            if (size.equals("No")) {
+                tshirt.setVisibility(View.INVISIBLE);
+                tshirt.setClickable(false);
+            }
         }
         Intent in=getIntent();
-
+        tshirt_size=in.getStringExtra("tshirt_size");
         user_hash = in.getStringExtra("user_hash");
         user_roll = in.getStringExtra("user_roll");
         fcard_given=in.getBooleanExtra("fcard_given", false);
-        tshirt_given=in.getBooleanExtra("tshirt_given", false);
+        tshirt_given = in.getBooleanExtra("tshirt_given", false);
+        gender=in.getStringExtra("gender");
+        amount=in.getStringExtra("amount");
         roll.setText("Roll NO: "+user_roll);
-
+        tshirt.setText("TSHIRT :"+tshirt_size);
+        if(amount.equals("550")){
+            tshirt.setVisibility(View.INVISIBLE);
+            tshirt.setClickable(false);
+        }
         SetButtonColor();
 
     }
     public void SetButtonColor(){
         if(fcard_given){
             fcard.setBackgroundColor(Color.RED);
-            fcard.setClickable(false);
+           // fcard.setClickable(false);
         }
         else{
 
@@ -72,7 +85,7 @@ public class Success extends Activity {
         }
         if(tshirt_given){
             tshirt.setBackgroundColor(Color.RED);
-            tshirt.setClickable(false);
+            //tshirt.setClickable(false);
         }
         else{
             tshirt.setBackgroundColor(Color.GREEN);
@@ -80,19 +93,19 @@ public class Success extends Activity {
     }
     public void fcardPressed(View view){
         if(fcard_given){
-            Toast.makeText(getApplicationContext(),"Already given foodcard",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Already given foodcard",Toast.LENGTH_SHORT).show();
             return;
         }
-        Update("fcard");
-        SetButtonColor();
-    }
-    public void Update(final String type){
-
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Updating...");
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Updating Food card...");
         pDialog.setCancelable(false);
         pDialog.setCanceledOnTouchOutside(false);
         pDialog.show();
+        Update("fcard");
+
+    }
+    public void Update(final String type){
+
 
         JSONObject params = new JSONObject();
         try {
@@ -130,10 +143,9 @@ public class Success extends Activity {
 
                         try {
                             int status = jsonResponse.getInt("status");
-                            pDialog.dismiss();
 
                             if(status==2){
-                                Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                                 if(type.equals("tshirt")){
                                     if(!tshirt_given) {
                                         tshirt_given = true;
@@ -144,19 +156,24 @@ public class Success extends Activity {
                                         fcard_given = true;
                                     }
                                 }
+                                SetButtonColor();
+                                pDialog.dismiss();
                                 return;
                             }
                             else if(status==3){
                                 String data=jsonResponse.getString("data");
-                                Toast.makeText(getApplicationContext(),data,Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),data,Toast.LENGTH_SHORT).show();
+                                pDialog.dismiss();
                                 return;
                             }
                             else if(status==0){
-                                Toast.makeText(getApplicationContext(),"User not registered",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"User not registered",Toast.LENGTH_SHORT).show();
+                                pDialog.dismiss();
                                 return;
                             }
                             else{
-                                Toast.makeText(getApplicationContext(),"Incorrect credentials",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(),"Incorrect credentials",Toast.LENGTH_SHORT).show();
+                                pDialog.dismiss();
                                 return;
                             }
 
@@ -168,10 +185,9 @@ public class Success extends Activity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError data) {
-                        pDialog.dismiss();
                         data.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
                     }
                 }
         ) {
@@ -183,11 +199,16 @@ public class Success extends Activity {
     }
     public void tshirtPressed(View view){
         if(tshirt_given){
-            Toast.makeText(getApplicationContext(),"Already given tshirt",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Already given tshirt",Toast.LENGTH_SHORT).show();
             return;
         }
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage("Updating tshirt...");
+        pDialog.setCancelable(false);
+        pDialog.setCanceledOnTouchOutside(false);
+        pDialog.show();
         Update("tshirt");
-        SetButtonColor();
+
     }
 
     @Override
