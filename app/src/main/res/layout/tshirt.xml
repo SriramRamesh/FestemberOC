@@ -20,7 +20,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SMALL"
+        android:text="SMALL &amp; XX LARGE"
         android:id="@+id/small"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10"
@@ -59,17 +59,6 @@
         android:layout_weight="0.10"
         android:textSize="30sp"
         android:background="#ff201a"
-        android:layout_marginTop="20sp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="XX LARGE"
-        android:id="@+id/XXLarge"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.10"
-        android:textSize="30sp"
-        android:background="#FFFFF81D"
         android:layout_marginTop="20sp" />
 
     <Button

@@ -414,7 +414,6 @@ int drawable red_line 0x7f02003c
 int id Pin 0x7f0c006d
 int id Roll 0x7f0c0058
 int id XLarge 0x7f0c0072
-int id XXLarge 0x7f0c0073
 int id action0 0x7f0c005f
 int id action_bar 0x7f0c0040
 int id action_bar_activity_content 0x7f0c001a
@@ -430,7 +429,7 @@ int id action_menu_presenter 0x7f0c001d
 int id action_mode_bar 0x7f0c003d
 int id action_mode_bar_stub 0x7f0c003c
 int id action_mode_close_button 0x7f0c0025
-int id action_settings 0x7f0c0075
+int id action_settings 0x7f0c0077
 int id activity_chooser_view_content 0x7f0c0026
 int id alertTitle 0x7f0c0030
 int id always 0x7f0c000f
@@ -461,6 +460,8 @@ int id fcard 0x7f0c0059
 int id fcard_no 0x7f0c005e
 int id fcard_yes 0x7f0c005d
 int id female 0x7f0c0052
+int id ftshirt_no 0x7f0c0076
+int id ftshirt_yes 0x7f0c0075
 int id home 0x7f0c001e
 int id homeAsUp 0x7f0c0006
 int id icon 0x7f0c002b
@@ -521,10 +522,11 @@ int id textView5 0x7f0c0057
 int id time 0x7f0c0065
 int id title 0x7f0c002c
 int id title2 0x7f0c005c
+int id title3 0x7f0c0074
 int id title_template 0x7f0c002f
 int id topPanel 0x7f0c002e
 int id tshirt 0x7f0c005a
-int id tshirt_No 0x7f0c0074
+int id tshirt_No 0x7f0c0073
 int id up 0x7f0c0022
 int id useLogo 0x7f0c0004
 int id withText 0x7f0c0010
@@ -577,6 +579,7 @@ int layout select_dialog_multichoice_material 0x7f040027
 int layout select_dialog_singlechoice_material 0x7f040028
 int layout support_simple_spinner_dropdown_item 0x7f040029
 int layout tshirt 0x7f04002a
+int layout tshirt_female 0x7f04002b
 int menu menu_main 0x7f0d0000
 int menu menu_qrscanner 0x7f0d0001
 int menu menu_success 0x7f0d0002

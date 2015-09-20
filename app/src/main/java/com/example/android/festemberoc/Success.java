@@ -29,7 +29,7 @@ public class Success extends Activity {
     ProgressDialog pDialog;
     Button fcard,tshirt;
     TextView roll;
-    Boolean fcard_given,tshirt_given,giving_fcard;
+    Boolean fcard_given,female_tshirt,tshirt_given,giving_fcard;
     String auth_pin,user_roll,user_hash,tshirt_size,size,gender,amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,8 @@ public class Success extends Activity {
         SharedPreferences sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
         auth_pin=sharedPreferences.getString("auth_pin", null);
         giving_fcard=sharedPreferences.getBoolean("Food", false);
-        size=sharedPreferences.getString("Size",null);
+        size = sharedPreferences.getString("Size", null);
+        female_tshirt=sharedPreferences.getBoolean("female tshirt",false);
         fcard=(Button)findViewById(R.id.fcard);
         tshirt=(Button)findViewById(R.id.tshirt);
 
@@ -61,10 +62,17 @@ public class Success extends Activity {
             fcard.setClickable(false);
         }
         if(gender.equals("male")) {
-            if (size.equals("No")) {
-                tshirt.setVisibility(View.INVISIBLE);
-                tshirt.setClickable(false);
-            }
+               if (size.equals("No")) {
+                    tshirt.setVisibility(View.INVISIBLE);
+                    tshirt.setClickable(false);
+                }
+
+        }
+        else{
+           if(!female_tshirt){
+               tshirt.setVisibility(View.INVISIBLE);
+               tshirt.setClickable(false);
+           }
         }
         roll.setText("Roll NO: "+user_roll);
         tshirt.setText("TSHIRT :"+tshirt_size);

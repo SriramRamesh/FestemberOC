@@ -1531,7 +1531,6 @@ containing a value of this type.
         public static final int Pin=0x7f0c006d;
         public static final int Roll=0x7f0c0058;
         public static final int XLarge=0x7f0c0072;
-        public static final int XXLarge=0x7f0c0073;
         public static final int action0=0x7f0c005f;
         public static final int action_bar=0x7f0c0040;
         public static final int action_bar_activity_content=0x7f0c001a;
@@ -1547,7 +1546,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0c003d;
         public static final int action_mode_bar_stub=0x7f0c003c;
         public static final int action_mode_close_button=0x7f0c0025;
-        public static final int action_settings=0x7f0c0075;
+        public static final int action_settings=0x7f0c0077;
         public static final int activity_chooser_view_content=0x7f0c0026;
         public static final int alertTitle=0x7f0c0030;
         public static final int always=0x7f0c000f;
@@ -1578,6 +1577,8 @@ containing a value of this type.
         public static final int fcard_no=0x7f0c005e;
         public static final int fcard_yes=0x7f0c005d;
         public static final int female=0x7f0c0052;
+        public static final int ftshirt_no=0x7f0c0076;
+        public static final int ftshirt_yes=0x7f0c0075;
         public static final int home=0x7f0c001e;
         public static final int homeAsUp=0x7f0c0006;
         public static final int icon=0x7f0c002b;
@@ -1638,10 +1639,11 @@ containing a value of this type.
         public static final int time=0x7f0c0065;
         public static final int title=0x7f0c002c;
         public static final int title2=0x7f0c005c;
+        public static final int title3=0x7f0c0074;
         public static final int title_template=0x7f0c002f;
         public static final int topPanel=0x7f0c002e;
         public static final int tshirt=0x7f0c005a;
-        public static final int tshirt_No=0x7f0c0074;
+        public static final int tshirt_No=0x7f0c0073;
         public static final int up=0x7f0c0022;
         public static final int useLogo=0x7f0c0004;
         public static final int withText=0x7f0c0010;
@@ -1698,6 +1700,7 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f040028;
         public static final int support_simple_spinner_dropdown_item=0x7f040029;
         public static final int tshirt=0x7f04002a;
+        public static final int tshirt_female=0x7f04002b;
     }
     public static final class menu {
         public static final int menu_main=0x7f0d0000;

@@ -33,8 +33,9 @@ public class MainActivity extends Activity {
     String tshirt_size;
     boolean fcard;
     boolean Is_fcard_filled=false;
+    boolean female_tshirt=false;
     String layout=null;
-    Button tS,tM,tL,tXL,tXXL,tN,fY,fN;
+    Button tS,tM,tL,tXL,tN,fY,fN,female_tshirt_Y,female_tshirt_N;
     SharedPreferences sharedPreferences;
 
     private Button.OnClickListener listener=new Button.OnClickListener(){
@@ -66,11 +67,6 @@ public class MainActivity extends Activity {
                     Select_fCard();
                     break;
                 }
-                case R.id.XXLarge:{
-                    tshirt_size="XXL";
-                    Select_fCard();
-                    break;
-                }
                 case R.id.tshirt_No:{
                     tshirt_size="No";
                     Select_fCard();
@@ -86,6 +82,16 @@ public class MainActivity extends Activity {
                     fcard=false;
                     break;
                 }
+                case R.id.ftshirt_no:{
+                    female_tshirt=false;
+                    Select_fCard();
+                    break;
+                }
+                case R.id.ftshirt_yes:{
+                    female_tshirt=true;
+                    Select_fCard();
+                    break;
+                }
                 default:{
                     Log.d("Debug","invalid button type ");
                 }
@@ -94,11 +100,24 @@ public class MainActivity extends Activity {
             if(Is_fcard_filled) {
                 if(gender.equals("male")) {
                     if ((tshirt_size.equals("No")) && !fcard && layout.equals("fcard") ) {
+                        Is_fcard_filled=false;
                         Toast.makeText(getApplicationContext(), "Choose tshirt or fcard ", Toast.LENGTH_SHORT).show();
+                        Select_tshirt();
                         return;
                     }
+
+                }
+                else{
+                    if(!female_tshirt&&!fcard){
+                        Is_fcard_filled=false;
+                        Toast.makeText(getApplicationContext(), "Choose tshirt or fcard ", Toast.LENGTH_SHORT).show();
+                        Select_ftshirt();
+                        return;
+                    }
+
                 }
                 editor.putString("Size", tshirt_size);
+                editor.putBoolean("female tshirt", female_tshirt);
                 editor.putBoolean("Food", fcard);
                 editor.apply();
                 setContentView(R.layout.pin_view_layout);
@@ -120,13 +139,26 @@ public class MainActivity extends Activity {
                 }
                 case R.id.female:{
                     gender="female";
-                    Select_fCard();
+                    Select_ftshirt();
                     break;
                 }
             }
 
         }
     };
+    private void Select_ftshirt(){
+        setContentView(R.layout.tshirt_female);
+        layout="ftshirt";
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
+
+        female_tshirt_Y=(Button)findViewById(R.id.ftshirt_yes);
+        female_tshirt_N=(Button)findViewById(R.id.ftshirt_no);
+        female_tshirt_Y.setOnClickListener(listener);
+        female_tshirt_N.setOnClickListener(listener);
+
+    }
+
     private void Select_tshirt(){
 
         setContentView(R.layout.tshirt);
@@ -146,8 +178,7 @@ public class MainActivity extends Activity {
         tXL=(Button)findViewById(R.id.XLarge);
         tXL.setOnClickListener(listener);
 
-        tXXL=(Button)findViewById(R.id.XXLarge);
-        tXXL.setOnClickListener(listener);
+
 
         tN=(Button)findViewById(R.id.tshirt_No);
         tN.setOnClickListener(listener);
@@ -176,7 +207,7 @@ public class MainActivity extends Activity {
                 Select_tshirt();
             }
             else{
-                Select_gender();
+                Select_ftshirt();
             }
         }
         else if(layout.equals("pin")) {

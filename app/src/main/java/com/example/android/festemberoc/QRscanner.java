@@ -148,7 +148,15 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                 //TODO: Change the shirt sizes
                                 if(OC_gender.equals("male")){
                                     if(!(size.equals("No"))) {
-                                        if (!(size.equals(tshirt_size))) {
+                                        if(size.equals("S")){
+                                            if(!(tshirt_size.equals("S")||tshirt_size.equals("XXL"))){
+                                                Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
+                                                new update_QRboolean().execute();
+                                                pDialog.dismiss();
+                                                return;
+                                            }
+                                        }
+                                        else if (!(size.equals(tshirt_size))) {
                                             Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
                                             new update_QRboolean().execute();
                                             pDialog.dismiss();
@@ -224,7 +232,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
         @Override
         protected Void doInBackground(Void... params) {
             try{
-                wait(500);
+                wait(1000);
             }
             catch (Exception e){
                 e.printStackTrace();
