@@ -46,6 +46,15 @@ public class Success extends Activity {
         fcard=(Button)findViewById(R.id.fcard);
         tshirt=(Button)findViewById(R.id.tshirt);
 
+        Intent in=getIntent();
+        tshirt_size=in.getStringExtra("tshirt_size");
+        user_hash = in.getStringExtra("user_hash");
+        user_roll = in.getStringExtra("user_roll");
+        fcard_given=in.getBooleanExtra("fcard_given", false);
+        tshirt_given = in.getBooleanExtra("tshirt_given", false);
+        gender=in.getStringExtra("gender");
+        amount=in.getStringExtra("amount");
+
         roll=(TextView)findViewById(R.id.Roll);
         if(!giving_fcard){
             fcard.setVisibility(View.INVISIBLE);
@@ -57,14 +66,6 @@ public class Success extends Activity {
                 tshirt.setClickable(false);
             }
         }
-        Intent in=getIntent();
-        tshirt_size=in.getStringExtra("tshirt_size");
-        user_hash = in.getStringExtra("user_hash");
-        user_roll = in.getStringExtra("user_roll");
-        fcard_given=in.getBooleanExtra("fcard_given", false);
-        tshirt_given = in.getBooleanExtra("tshirt_given", false);
-        gender=in.getStringExtra("gender");
-        amount=in.getStringExtra("amount");
         roll.setText("Roll NO: "+user_roll);
         tshirt.setText("TSHIRT :"+tshirt_size);
         if(amount.equals("550")){

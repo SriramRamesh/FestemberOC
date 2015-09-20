@@ -172,7 +172,12 @@ public class MainActivity extends Activity {
     public void onBackPressed(){
 
         if(layout.equals("fcard")) {
-            Select_tshirt();
+            if(gender.equals("male")) {
+                Select_tshirt();
+            }
+            else{
+                Select_gender();
+            }
         }
         else if(layout.equals("pin")) {
             Select_fCard();

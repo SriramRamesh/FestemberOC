@@ -151,7 +151,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                         if (!(size.equals(tshirt_size))) {
                                             Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
                                             new update_QRboolean().execute();
-
+                                            pDialog.dismiss();
                                             return;
                                         }
                                     }
