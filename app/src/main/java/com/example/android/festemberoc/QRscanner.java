@@ -164,6 +164,23 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                         }
                                     }
                                 }
+                                if(amount.equals("550")){
+                                    pDialog.dismiss();
+                                    new update_QRboolean().execute();
+
+                                    Intent in = new Intent(QRscanner.this,Success.class);
+                                    in.putExtra("fcard_given",fcard_given);
+                                    in.putExtra("user_roll",user_roll);
+                                    in.putExtra("tshirt_given",tshirt_given);
+                                    in.putExtra("user_hash",user_hash);
+                                    in.putExtra("gender",gender);
+                                    in.putExtra("tshirt_size",tshirt_size);
+                                    in.putExtra("amount",amount);
+                                    startActivity(in);
+
+
+
+                                }
                                 if(!(OC_gender.equals(gender))){
                                     Toast.makeText(getApplicationContext(),"Registered gender : "+gender,Toast.LENGTH_SHORT).show();
                                     pDialog.dismiss();

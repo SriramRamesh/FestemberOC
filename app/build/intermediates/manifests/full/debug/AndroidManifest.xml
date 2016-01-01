@@ -33,6 +33,22 @@
             android:name="com.example.android.festemberoc.Success"
             android:label="@string/title_activity_success" >
         </activity>
+        <activity
+            android:name="com.example.android.festemberoc.Select_female_tshirt"
+            android:label="@string/title_activity_seleact_female_tshirt" >
+        </activity>
+        <activity
+            android:name="com.example.android.festemberoc.Select_male_tshirt"
+            android:label="@string/title_activity_select_male_tshirt" >
+        </activity>
+        <activity
+            android:name="com.example.android.festemberoc.Select_fCard"
+            android:label="@string/title_activity_select_f_card" >
+        </activity>
+        <activity
+            android:name="com.example.android.festemberoc.pinActivity"
+            android:label="@string/title_activity_pin" >
+        </activity>
     </application>
 
 </manifest>

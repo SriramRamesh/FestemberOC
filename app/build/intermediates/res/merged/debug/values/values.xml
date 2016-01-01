@@ -209,7 +209,11 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/C:/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="title_activity_pin">pinActivity</string>
     <string name="title_activity_qrscanner">QRscanner</string>
+    <string name="title_activity_seleact_female_tshirt">Seleact_female_tshirt</string>
+    <string name="title_activity_select_f_card">Select_fCard</string>
+    <string name="title_activity_select_male_tshirt">Select_male_tshirt</string>
     <string name="title_activity_success">Success</string>
     <!-- From: file:/C:/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>

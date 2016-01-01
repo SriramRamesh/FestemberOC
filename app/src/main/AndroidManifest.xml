@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.festemberoc" >
-    <uses-permission
-        android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +25,22 @@
         <activity
             android:name=".Success"
             android:label="@string/title_activity_success" >
+        </activity>
+        <activity
+            android:name=".Select_female_tshirt"
+            android:label="@string/title_activity_seleact_female_tshirt" >
+        </activity>
+        <activity
+            android:name=".Select_male_tshirt"
+            android:label="@string/title_activity_select_male_tshirt" >
+        </activity>
+        <activity
+            android:name=".Select_fCard"
+            android:label="@string/title_activity_select_f_card" >
+        </activity>
+        <activity
+            android:name=".pinActivity"
+            android:label="@string/title_activity_pin" >
         </activity>
     </application>
 
