@@ -1,5 +1,7 @@
 package com.example.android.festemberoc;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -12,12 +14,18 @@ import android.widget.Button;
 public class Select_female_tshirt extends AppCompatActivity {
 
     Button female_tshirt_Y,female_tshirt_N;
-    SharedPreferences sharedPreferences;
     boolean female_tshirt;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_female_tshirt);
+
+        sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
@@ -31,10 +39,18 @@ public class Select_female_tshirt extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.ftshirt_no:{
                     female_tshirt=false;
+                    editor.putBoolean("f_tshirt",false);
+                    editor.apply();
+                    Intent in=new Intent(Select_female_tshirt.this,Select_fCard.class);
+                    startActivity(in);
                     break;
                 }
                 case R.id.ftshirt_yes:{
                     female_tshirt=true;
+                    editor.putBoolean("f_tshirt", true);
+                    editor.apply();
+                    Intent in=new Intent(Select_female_tshirt.this,Select_fCard.class);
+                    startActivity(in);
                     break;
                 }
             }

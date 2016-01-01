@@ -1,6 +1,8 @@
 package com.example.android.festemberoc;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -10,8 +12,10 @@ import android.widget.Button;
 
 public class Select_fCard extends AppCompatActivity {
 
-    boolean Is_fcard_filled,fcard;
+    boolean fcard;
     Button fY,fN;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     Intent in;
 
     Button.OnClickListener listener=new Button.OnClickListener() {
@@ -19,13 +23,15 @@ public class Select_fCard extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.fcard_yes:{
                     fcard=true;
-                    Is_fcard_filled=true;
+                    editor.putBoolean("fcard",fcard);
+                    editor.apply();
                     startActivity(in);
                     break;
                 }
                 case R.id.fcard_no:{
-                    Is_fcard_filled=true;
                     fcard=false;
+                    editor.putBoolean("fcard",fcard);
+                    editor.apply();
                     startActivity(in);
                     break;
                 }
@@ -36,6 +42,9 @@ public class Select_fCard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_fcard);
+
+        sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
 
         in=new Intent(Select_fCard.this,pinActivity.class);
 

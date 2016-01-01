@@ -15,13 +15,18 @@ public class Select_male_tshirt extends Activity {
 
     SharedPreferences sharedPreferences;
     Button tS,tM,tL,tXL,tN;
-    String gender,tshirt_size;
+    String tshirt_size;
     SharedPreferences.Editor editor;
 
     private void Select_fCard(){
         Intent in=new Intent(Select_male_tshirt.this,Select_fCard.class);
+        if(tshirt_size.equals("No")){
+            editor.putBoolean("m_tshirt", false);
+        }
+        else{
+            editor.putBoolean("m_tshirt",true);
+        }
         editor.putString("tshirtSize",tshirt_size);
-
         editor.apply();
         startActivity(in);
     }
@@ -65,6 +70,7 @@ public class Select_male_tshirt extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_male_tshirt);
+
         sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
 

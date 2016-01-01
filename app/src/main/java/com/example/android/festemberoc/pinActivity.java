@@ -45,11 +45,8 @@ public class pinActivity extends AppCompatActivity {
             return;
         }
         Pin = Integer.parseInt(PinStr);
-        check_login();
-        //TODO: Make an api call and verify the pin
-
+        check_login(); //Make an api call and verify the pin
         Log.d("Debug", "pin=" + Pin);
-
         continue_button.setClickable(true);
     }
     @Override
@@ -128,9 +125,6 @@ public class pinActivity extends AppCompatActivity {
                                 return;
 
                             }
-
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
