@@ -9,4 +9,5 @@
     <string name="title_activity_select_male_tshirt">Select_male_tshirt</string>
     <string name="title_activity_select_f_card">Select_fCard</string>
     <string name="title_activity_pin">pinActivity</string>
+    <string name="apiUrl">api.pragyan.org</string>
 </resources>

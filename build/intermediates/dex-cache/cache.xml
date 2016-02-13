@@ -2,53 +2,53 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-4bfea652bcab0008cd5eee3ef0a94eb3899fc7eb.jar" />
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-33c55e418bd52c607d5fbbbd980eaa692a5187d6.jar" />
     </item>
     <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\classes-da85bb58a299821587d312cb3bd7968a3fec3d7d.jar" />
-    </item>
-    <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\com.dlazaro66.qrcodereaderview\qrcodereaderview\1.0.0\jars\classes.jar"
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.dlazaro66.qrcodereaderview/qrcodereaderview/1.0.0/jars/classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="cd3f0aeca8f8e53d60cad6597e69d5d753fb0360">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\classes-cf42139432c26de5dd8dd77c1f03f25c211a012d.jar" />
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/classes-2994746c20f22a2636b19063a8284c660377dac1.jar" />
     </item>
     <item
-        jar="C:\Users\DELL\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/FestemberOC/volley/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-60348c823b976cdf4ac07f85a1172eae66856b31.jar" />
+        sha1="f0d1509b89a71abbbce855153beccfd83919b228">
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/classes-1ab38567a9cddcb3357f6972d1862a7ea474f5a5.jar" />
     </item>
     <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\com.dlazaro66.qrcodereaderview\qrcodereaderview\1.0.0\jars\libs\core.jar"
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.dlazaro66.qrcodereaderview/qrcodereaderview/1.0.0/jars/libs/core.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="f3c7e89b5124329cddba83bcf7c26c1c636c16b8">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\core-191ac2522add9131243539924ce8fb0009ebf529.jar" />
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/core-91270de2b49f365324bbb75f9976346d1eb98519.jar" />
     </item>
     <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\classes-b8cb6d7902e3cbd0b5196b4cd34507c0a1712201.jar" />
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/classes-81e0c0021b9c1aa3d40927251dbc31449ce7ca60.jar" />
     </item>
     <item
-        jar="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\exploded-aar\FestemberOC\volley\unspecified\jars\classes.jar"
+        jar="/home/sriram/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="a97705f5e23a9b301255dee7c7c303cf46380faa">
-        <dex dex="C:\Users\DELL\Documents\GitHub\google-services\android\FestemberOC\app\build\intermediates\pre-dexed\debug\classes-4596fd4625e8bbc91e8206c3b4f94d22a91c760b.jar" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-07fe2d092868d83aa91761a8724cf25f2254bf82.jar" />
+    </item>
+    <item
+        jar="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/pre-dexed/debug/classes-5ab3aca9089bc9c659c1ff25216eaa89f75bb023.jar" />
     </item>
 
 </items>

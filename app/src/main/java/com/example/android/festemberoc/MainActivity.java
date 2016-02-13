@@ -21,13 +21,15 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.male:{
-                    editor.putString("gender","male");
+                    editor.putString("OCgender","male");
+                    editor.apply();
                     Intent in= new Intent(MainActivity.this,Select_male_tshirt.class);
                     startActivity(in);
                     break;
                 }
                 case R.id.female:{
-                    editor.putString("gender","female");
+                    editor.putString("OCgender","female");
+                    editor.apply();
                     Intent in =new Intent(MainActivity.this,Select_female_tshirt.class);
                     startActivity(in);
                     break;

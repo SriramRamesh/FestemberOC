@@ -41,9 +41,9 @@ public class Success extends Activity {
 
         SharedPreferences sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
         auth_pin=sharedPreferences.getString("auth_pin", null);
-        giving_fcard=sharedPreferences.getBoolean("Food", false);
+        giving_fcard=sharedPreferences.getBoolean("fcard", false);
         size = sharedPreferences.getString("Size", null);
-        female_tshirt=sharedPreferences.getBoolean("female tshirt",false);
+        female_tshirt=sharedPreferences.getBoolean("f_tshirt",false);
         fcard=(Button)findViewById(R.id.fcard);
         tshirt=(Button)findViewById(R.id.tshirt);
 
@@ -144,8 +144,8 @@ public class Success extends Activity {
             e.printStackTrace();
         }
 
-
-        JsonObjectRequest postRequest = new JsonObjectRequest("https://api.festember.com/oc/tshirt/update",params,
+        String api=getString(R.string.apiUrl);
+        JsonObjectRequest postRequest = new JsonObjectRequest("https://"+api+"/tshirt/update",params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonResponse) {

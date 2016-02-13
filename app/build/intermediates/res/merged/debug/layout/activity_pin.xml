@@ -15,7 +15,10 @@
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
         android:ems="10"
-        android:id="@+id/Pin" />
+        android:id="@+id/Pin"
+        android:phoneNumber="true"
+        android:password="false"
+        android:numeric="integer" />
 
     <Button
         android:layout_width="wrap_content"
@@ -24,4 +27,4 @@
         android:id="@+id/button2"
         android:layout_gravity="right"
         android:onClick="Continue" />
-</LinearLayout><!-- From: file:/C:/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_pin.xml -->
+</LinearLayout><!-- From: file:/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_pin.xml -->

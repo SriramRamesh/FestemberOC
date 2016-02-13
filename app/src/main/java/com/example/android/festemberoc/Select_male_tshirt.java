@@ -26,7 +26,7 @@ public class Select_male_tshirt extends Activity {
         else{
             editor.putBoolean("m_tshirt",true);
         }
-        editor.putString("tshirtSize",tshirt_size);
+        editor.putString("Size",tshirt_size);
         editor.apply();
         startActivity(in);
     }

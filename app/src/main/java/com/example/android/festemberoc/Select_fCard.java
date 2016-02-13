@@ -23,14 +23,14 @@ public class Select_fCard extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.fcard_yes:{
                     fcard=true;
-                    editor.putBoolean("fcard",fcard);
+                    editor.putBoolean("fcard",true);
                     editor.apply();
                     startActivity(in);
                     break;
                 }
                 case R.id.fcard_no:{
                     fcard=false;
-                    editor.putBoolean("fcard",fcard);
+                    editor.putBoolean("fcard",false);
                     editor.apply();
                     startActivity(in);
                     break;

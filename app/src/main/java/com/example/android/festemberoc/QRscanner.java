@@ -39,7 +39,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
     String auth_pin,user_roll,user_hash;
     private QRCodeReaderView mydecoderview;
     private ImageView line_image;
-    boolean QRcoderead=false;
+    static boolean QRcoderead=false;
     String gender=null;
     String tshirt_size,size,OC_gender,amount;
     boolean tshirt_given,fcard_given,extra_given;
@@ -55,7 +55,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
         sharedPreferences=getSharedPreferences("User Details", Context.MODE_PRIVATE);
         auth_pin=sharedPreferences.getString("auth_pin", null);
         size=sharedPreferences.getString("Size", null);
-        OC_gender=sharedPreferences.getString("OC_gender",null);
+        OC_gender=sharedPreferences.getString("OCgender",null);
 
 
         mydecoderview = (QRCodeReaderView) findViewById(R.id.qrdecoderview);
@@ -91,12 +91,17 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
             pDialog.setCanceledOnTouchOutside(false);
             pDialog.show();
             QRcoderead = true;
-            String list[] = s.split("&");
-            String temp[] = list[1].split("=");
-            user_roll = temp[1];
-            temp = list[2].split("=");
-            user_hash = temp[1];
-            Log.d("debug", "roll" + user_roll + "\nhash" + user_hash);
+            String list[] = s.split("\\$\\$\\$");
+            Log.d("test","List:"+list+"\n String"+s);
+            user_roll = list[0];
+            user_hash = list[1];
+
+//            String list[] = s.split("&");
+//            String temp[] = list[1].split("=");
+//            user_roll = temp[1];
+//            temp = list[2].split("=");
+//            user_hash = temp[1];
+            Log.d("test", "roll" + user_roll + "\nhash" + user_hash);
             //TODO: Make an API Call...
             checkQR();
         }
@@ -125,8 +130,8 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
         mydecoderview.getCameraManager().stopPreview();
     }
     public void checkQR(){
-
-        StringRequest postRequest = new StringRequest(Request.Method.POST, "https://api.festember.com/oc/tshirt/getDetails",
+        String api=getString(R.string.apiUrl);
+        StringRequest postRequest = new StringRequest(Request.Method.POST, "https://"+api+"/tshirt/getDetails",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -196,6 +201,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                 in.putExtra("tshirt_given",tshirt_given);
                                 in.putExtra("user_hash",user_hash);
                                 in.putExtra("gender",gender);
+                                in.putExtra("gender",gender);
                                 in.putExtra("tshirt_size",tshirt_size);
                                 in.putExtra("amount",amount);
                                 startActivity(in);
@@ -225,7 +231,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                         pDialog.dismiss();
                         new update_QRboolean().execute();
                         data.printStackTrace();
-                        Toast.makeText(QRscanner.this, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(QRscanner.this, "Error Response", Toast.LENGTH_SHORT).show();
 
                     }
                 }

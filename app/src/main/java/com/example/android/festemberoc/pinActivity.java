@@ -96,8 +96,9 @@ public class pinActivity extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.setCanceledOnTouchOutside(false);
         pDialog.show();
+        String api=getString(R.string.apiUrl);
 
-        StringRequest postRequest = new StringRequest(Request.Method.POST, "https://api.festember.com/oc/tshirt/auth",
+        StringRequest postRequest = new StringRequest(Request.Method.POST, "https://"+api+"/tshirt/auth",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
