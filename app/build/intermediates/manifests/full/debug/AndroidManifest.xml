@@ -27,28 +27,23 @@
         </activity>
         <activity
             android:name="com.example.android.festemberoc.QRscanner"
-            android:label="@string/title_activity_qrscanner" >
-        </activity>
+            android:label="@string/title_activity_qrscanner" />
         <activity
             android:name="com.example.android.festemberoc.Success"
-            android:label="@string/title_activity_success" >
-        </activity>
+            android:label="@string/title_activity_success" />
         <activity
             android:name="com.example.android.festemberoc.Select_female_tshirt"
-            android:label="@string/title_activity_seleact_female_tshirt" >
-        </activity>
+            android:label="@string/title_activity_seleact_female_tshirt" />
         <activity
             android:name="com.example.android.festemberoc.Select_male_tshirt"
-            android:label="@string/title_activity_select_male_tshirt" >
-        </activity>
+            android:label="@string/title_activity_select_male_tshirt" />
         <activity
             android:name="com.example.android.festemberoc.Select_fCard"
-            android:label="@string/title_activity_select_f_card" >
-        </activity>
+            android:label="@string/title_activity_select_f_card" />
         <activity
             android:name="com.example.android.festemberoc.pinActivity"
-            android:label="@string/title_activity_pin" >
-        </activity>
+            android:label="@string/title_activity_pin" />
+        <activity android:name="com.example.android.festemberoc.QRScanner_admin" />
     </application>
 
 </manifest>

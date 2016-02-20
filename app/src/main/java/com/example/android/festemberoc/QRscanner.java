@@ -23,6 +23,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
+import com.google.zxing.ChecksumException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,13 +42,21 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
     private ImageView line_image;
     static boolean QRcoderead=false;
     String gender=null;
+    boolean authenticated=false;
     String tshirt_size,size,OC_gender,amount;
     boolean tshirt_given,fcard_given,extra_given;
+    private static boolean scanned_admin;
+
+    int oc_user_id=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrscanner);
-
+        scanned_admin=false;
+        /*Intent intent=getIntent();
+        String temp=intent.getStringExtra("oc_user_id");
+        validate_oc_user_id(temp);
+*/
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
@@ -78,34 +87,70 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
 
 
     }
+    private void validate_oc_user_id(String s){
+        try{
+            int i=Integer.parseInt(s);
+        }catch (Exception e){
+            oc_user_id=-1;
+            return;
+        }
+        oc_user_id=Integer.parseInt(s);
+        Runnable runnable=new Runnable() {
+            @Override
+            public void run() {
+                try {
+                   wait(1000);
+                    QRcoderead=false;
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+            }
+        };
+        runnable.run();
+
+        return;
+
+    }
 
 
     @Override
-    public void onQRCodeRead(String s, PointF[] pointFs) {
+    public void onQRCodeRead(String s, PointF[] pointFs){
+
+            Log.d("QR Code read", "Success\n qr:" + s);
+            process_QR(s);
 
 
-        if(!QRcoderead) {
-            pDialog = new ProgressDialog(this);
-            pDialog.setMessage("Scanning QRCode...");
-            pDialog.setCancelable(false);
-            pDialog.setCanceledOnTouchOutside(false);
-            pDialog.show();
-            QRcoderead = true;
-            String list[] = s.split("\\$\\$\\$");
-            Log.d("test","List:"+list+"\n String"+s);
-            user_roll = list[0];
-            user_hash = list[1];
 
-//            String list[] = s.split("&");
-//            String temp[] = list[1].split("=");
-//            user_roll = temp[1];
-//            temp = list[2].split("=");
-//            user_hash = temp[1];
-            Log.d("test", "roll" + user_roll + "\nhash" + user_hash);
-            //TODO: Make an API Call...
-            checkQR();
+
+    }
+    void process_QR(String s){
+        if (!QRcoderead) {
+            Log.d("Qcode read", "false");
+
+            if (scanned_admin) {
+
+                pDialog = new ProgressDialog(this);
+                pDialog.setMessage("Scanning QRCode...");
+                pDialog.setCancelable(false);
+                pDialog.setCanceledOnTouchOutside(false);
+                pDialog.show();
+                String list[] = s.split("\\$\\$\\$");
+                Log.d("test", "List:" + list + "\n String" + s);
+                user_roll = list[0];
+                user_hash = list[1];
+                authenticate();
+                Log.d("test", "roll" + user_roll + "\nhash" + user_hash);
+            } else {
+                Log.d("validate s", "success");
+                QRcoderead = true;
+                validate_oc_user_id(s);
+                Toast.makeText(getApplicationContext(), "Scanned admin QR code", Toast.LENGTH_LONG).show();
+                scanned_admin = true;
+
+            }
+
         }
-
     }
 
     @Override
@@ -156,22 +201,25 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                         if(size.equals("S")){
                                             if(!(tshirt_size.equals("S")||tshirt_size.equals("XXL"))){
                                                 Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
-                                                new update_QRboolean().execute();
+                                                //new update_QRboolean().execute();
+                                                QRcoderead=false;
                                                 pDialog.dismiss();
                                                 return;
                                             }
                                         }
                                         else if (!(size.equals(tshirt_size))) {
                                             Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
-                                            new update_QRboolean().execute();
+                                            //new update_QRboolean().execute();
                                             pDialog.dismiss();
+                                            QRcoderead=false;
                                             return;
                                         }
                                     }
                                 }
                                 if(amount.equals("550")){
                                     pDialog.dismiss();
-                                    new update_QRboolean().execute();
+                                    QRcoderead=false;
+                                    //new update_QRboolean().execute();
 
                                     Intent in = new Intent(QRscanner.this,Success.class);
                                     in.putExtra("fcard_given",fcard_given);
@@ -189,11 +237,13 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                 if(!(OC_gender.equals(gender))){
                                     Toast.makeText(getApplicationContext(),"Registered gender : "+gender,Toast.LENGTH_SHORT).show();
                                     pDialog.dismiss();
-                                    new update_QRboolean().execute();
+                                    QRcoderead=false;
+                                    //new update_QRboolean().execute();
                                     return;
                                 }
                                 pDialog.dismiss();
-                                new update_QRboolean().execute();
+                                QRcoderead=false;
+                                //new update_QRboolean().execute();
 
                                 Intent in = new Intent(QRscanner.this,Success.class);
                                 in.putExtra("fcard_given",fcard_given);
@@ -211,15 +261,16 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                 String data=jsonResponse.getString("data");
                                 Toast.makeText(getApplicationContext(),data,Toast.LENGTH_SHORT).show();
                                 pDialog.dismiss();
-                                new update_QRboolean().execute();
-
+                                //new update_QRboolean().execute();
+                                QRcoderead=false;
                                 return;
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             pDialog.dismiss();
-                            new update_QRboolean().execute();
+                            QRcoderead=false;
+                            //new update_QRboolean().execute();
 
 
                         }
@@ -229,7 +280,8 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                     @Override
                     public void onErrorResponse(VolleyError data) {
                         pDialog.dismiss();
-                        new update_QRboolean().execute();
+                        QRcoderead=false;
+                        //new update_QRboolean().execute();
                         data.printStackTrace();
                         Toast.makeText(QRscanner.this, "Error Response", Toast.LENGTH_SHORT).show();
 
@@ -247,27 +299,72 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                 return params;
             }
         };
+
         Volley.newRequestQueue(this).add(postRequest);
 
     }
-    private class update_QRboolean extends AsyncTask<Void,Void,Void>{
 
-        @Override
-        protected Void doInBackground(Void... params) {
-            try{
-                wait(1000);
+    public void authenticate(){
+        StringRequest admin_postRequest = new StringRequest(Request.Method.POST, "https://"+"admin.pragyan.org"+"/home/oc/register",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            int status = jsonResponse.getInt("status");
+
+                            Log.d("Debug","json: "+jsonResponse);
+                            switch (status){
+                                case 200:{
+                                    authenticated=true;
+                                    checkQR();
+                                    break;
+                                }
+                                case 400:{
+                                    pDialog.dismiss();
+                                    QRcoderead=false;
+                                    Toast.makeText(getApplicationContext(),"Invalid request..... please contact pragyan admin",Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            pDialog.dismiss();
+                            QRcoderead=false;
+                            //new update_QRboolean().execute();
+
+
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError data) {
+                        data.printStackTrace();
+                        Toast.makeText(QRscanner.this, "Error Response", Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                        QRcoderead=false;
+
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<>();
+                // the POST parameters:
+                params.put("user_roll",user_roll);
+                params.put("oc_user_id",oc_user_id+"");
+                return params;
             }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-            return null;
-        }
-        @Override
-        protected void onPostExecute(Void params){
-            QRcoderead=false;
-            return ;
-        }
+        };
+        Volley.newRequestQueue(this).add(admin_postRequest);
+
     }
+
     private boolean USER_IS_GOING_TO_EXIT=false;
     @Override
     public void onBackPressed() {

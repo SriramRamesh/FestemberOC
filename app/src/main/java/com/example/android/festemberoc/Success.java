@@ -24,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class Success extends Activity {
 
     ProgressDialog pDialog;
@@ -113,9 +115,9 @@ public class Success extends Activity {
         Update("fcard");
 
     }
-    public void Update(final String type){
+    public void Update(String type_args){
 
-
+        final String type=type_args;
         JSONObject params = new JSONObject();
         try {
 
@@ -151,6 +153,7 @@ public class Success extends Activity {
                     public void onResponse(JSONObject jsonResponse) {
 
                         try {
+                            String temp_type=type;
                             int status = jsonResponse.getInt("status");
 
                             if(status==2){
@@ -199,6 +202,7 @@ public class Success extends Activity {
                         pDialog.dismiss();
                     }
                 }
+
         ) {
 
         };

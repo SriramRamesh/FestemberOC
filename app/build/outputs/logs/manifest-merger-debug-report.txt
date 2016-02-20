@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:2:1-47:12
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:3:5-46
 		INJECTED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/Festemb
 	android:name
 		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:7:5-45:19
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:7:5-40:19
 MERGED from [FestemberOC:volley:unspecified] /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/FestemberOC/volley/unspecified/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:appcompat-v7:22.2.0] /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:22.2.0] /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/AndroidManifest.xml:22:5-20
@@ -47,41 +47,45 @@ ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/Festemb
 	android:name
 		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:18:27-74
 activity#com.example.android.festemberoc.QRscanner
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:21:9-24:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:21:9-23:73
 	android:label
 		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:23:13-61
 	android:name
 		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:22:13-38
 activity#com.example.android.festemberoc.Success
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:25:9-28:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:24:9-26:71
 	android:label
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:27:13-59
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:26:13-59
 	android:name
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:26:13-36
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:25:13-36
 activity#com.example.android.festemberoc.Select_female_tshirt
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:29:9-32:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:27:9-29:85
 	android:label
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:31:13-73
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:29:13-73
 	android:name
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:30:13-49
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:28:13-49
 activity#com.example.android.festemberoc.Select_male_tshirt
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:33:9-36:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:30:9-32:82
 	android:label
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:35:13-70
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:32:13-70
 	android:name
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:34:13-47
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:31:13-47
 activity#com.example.android.festemberoc.Select_fCard
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:37:9-40:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:33:9-35:77
 	android:label
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:39:13-65
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:35:13-65
 	android:name
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:38:13-41
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:34:13-41
 activity#com.example.android.festemberoc.pinActivity
-ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:41:9-44:20
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:36:9-38:67
 	android:label
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:43:13-55
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:38:13-55
 	android:name
-		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:42:13-40
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:37:13-40
+activity#com.example.android.festemberoc.QRScanner_admin
+ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:39:9-62
+	android:name
+		ADDED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml:39:19-50
 uses-sdk
 INJECTED from /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.dlazaro66.qrcodereaderview:qrcodereaderview:1.0.0] /media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/build/intermediates/exploded-aar/com.dlazaro66.qrcodereaderview/qrcodereaderview/1.0.0/AndroidManifest.xml:7:5-9:41

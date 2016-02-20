@@ -109,15 +109,18 @@ public class pinActivity extends AppCompatActivity {
                             int status = jsonResponse.getInt("status");
                             pDialog.dismiss();
 
-                            if(status==1){
+                            if(status==1) {
                                 Toast.makeText(getApplicationContext(), "Authenticated", Toast.LENGTH_SHORT).show();
                                 sharedPreferences = getSharedPreferences("User Details", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("auth_pin", PinStr);
-                                editor.putString("OC_gender",gender);
+                                editor.putString("OC_gender", gender);
                                 editor.apply();
                                 Intent in = new Intent(pinActivity.this, QRscanner.class);
                                 startActivity(in);
+                                /*Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                                intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+                                startActivityForResult(intent, 0);*/
 
                             }
                             else{
@@ -152,5 +155,17 @@ public class pinActivity extends AppCompatActivity {
         };
         Volley.newRequestQueue(this).add(postRequest);
 
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                String contents = intent.getStringExtra("SCAN_RESULT");
+                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+                Toast.makeText(getApplicationContext(),"Success"+contents,Toast.LENGTH_LONG);
+                // Handle successful scan
+            } else if (resultCode == RESULT_CANCELED) {
+                // Handle cancel
+            }
+        }
     }
 }

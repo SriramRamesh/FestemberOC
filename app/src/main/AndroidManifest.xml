@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.festemberoc" >
+    package="com.example.android.festemberoc">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -8,10 +8,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,28 +20,23 @@
         </activity>
         <activity
             android:name=".QRscanner"
-            android:label="@string/title_activity_qrscanner" >
-        </activity>
+            android:label="@string/title_activity_qrscanner"></activity>
         <activity
             android:name=".Success"
-            android:label="@string/title_activity_success" >
-        </activity>
+            android:label="@string/title_activity_success"></activity>
         <activity
             android:name=".Select_female_tshirt"
-            android:label="@string/title_activity_seleact_female_tshirt" >
-        </activity>
+            android:label="@string/title_activity_seleact_female_tshirt"></activity>
         <activity
             android:name=".Select_male_tshirt"
-            android:label="@string/title_activity_select_male_tshirt" >
-        </activity>
+            android:label="@string/title_activity_select_male_tshirt"></activity>
         <activity
             android:name=".Select_fCard"
-            android:label="@string/title_activity_select_f_card" >
-        </activity>
+            android:label="@string/title_activity_select_f_card"></activity>
         <activity
             android:name=".pinActivity"
-            android:label="@string/title_activity_pin" >
-        </activity>
+            android:label="@string/title_activity_pin"></activity>
+        <activity android:name=".QRScanner_admin"></activity>
     </application>
 
 </manifest>
