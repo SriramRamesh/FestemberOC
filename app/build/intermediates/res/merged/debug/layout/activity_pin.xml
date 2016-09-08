@@ -27,4 +27,4 @@
         android:id="@+id/button2"
         android:layout_gravity="right"
         android:onClick="Continue" />
-</LinearLayout><!-- From: file:/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_pin.xml -->
+</LinearLayout>

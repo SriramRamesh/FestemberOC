@@ -36,7 +36,6 @@
         <activity
             android:name=".pinActivity"
             android:label="@string/title_activity_pin"></activity>
-        <activity android:name=".QRScanner_admin"></activity>
     </application>
 
 </manifest>

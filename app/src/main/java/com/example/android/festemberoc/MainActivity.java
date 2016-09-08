@@ -42,10 +42,10 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        sharedPreferences = getSharedPreferences("User Details", Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sharedPreferences = getSharedPreferences("User Details", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
         mB=(Button)findViewById(R.id.male);
@@ -53,31 +53,6 @@ public class MainActivity extends Activity {
         fB=(Button)findViewById(R.id.female);
         fB.setOnClickListener(genderListener);
     }
-
-   /* @Override
-    public void onBackPressed(){
-
-        if(layout.equals("fcard")) {
-            if(gender.equals("male")) {
-                Select_tshirt();
-            }
-            else{
-                Select_ftshirt();
-            }
-        }
-        else if(layout.equals("pin")) {
-            Select_fCard();
-        }
-        else if (layout.equals("tshirt")){
-            Select_gender();
-        }
-        else
-        {
-            super.onBackPressed();
-        }
-
-    }*/
-
 
 
 }

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_success.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_success.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_seleact_female_tshirt.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_seleact_female_tshirt.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_select_male_tshirt.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_select_male_tshirt.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_select_f_card.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_select_f_card.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_qrscanner.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_qrscanner.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_pin.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_pin.xml"
+    },
+    {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/menu/menu_main.xml"
+    }
+]

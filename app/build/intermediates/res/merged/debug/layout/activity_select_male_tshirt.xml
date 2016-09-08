@@ -70,4 +70,4 @@
         android:textSize="30sp"
         android:background="#ff201a"
         android:layout_marginTop="20sp" />
-</LinearLayout><!-- From: file:/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_select_male_tshirt.xml -->
+</LinearLayout>

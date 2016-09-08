@@ -40,4 +40,4 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:background="#a33cff" />
-</LinearLayout><!-- From: file:/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_select_female_tshirt.xml -->
+</LinearLayout>

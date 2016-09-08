@@ -40,4 +40,4 @@
         android:textStyle="bold"
         android:textSize="30sp"
         android:background="#4b4fff" />
-</LinearLayout><!-- From: file:/media/OS/Users/DELL/Documents/GitHub/google-services/android/FestemberOC/app/src/main/res/layout/activity_select_fcard.xml -->
+</LinearLayout>

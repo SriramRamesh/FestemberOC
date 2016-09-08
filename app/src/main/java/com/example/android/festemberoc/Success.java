@@ -24,15 +24,14 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Map;
-
 public class Success extends Activity {
 
     ProgressDialog pDialog;
     Button fcard,tshirt;
     TextView roll;
     Boolean fcard_given,female_tshirt,tshirt_given,giving_fcard;
-    String auth_pin,user_roll,user_hash,tshirt_size,size,gender,amount;
+    String auth_pin,user_id,user_hash,tshirt_size,size,gender;
+    int amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,16 +47,19 @@ public class Success extends Activity {
         female_tshirt=sharedPreferences.getBoolean("f_tshirt",false);
         fcard=(Button)findViewById(R.id.fcard);
         tshirt=(Button)findViewById(R.id.tshirt);
+        try {
+            Intent in = getIntent();
+            tshirt_size = in.getStringExtra("tshirt_size");
+            user_hash = in.getStringExtra("user_hash");
+            user_id = in.getStringExtra("user_id");
+            fcard_given = in.getBooleanExtra("fcard_given", false);
+            tshirt_given = in.getBooleanExtra("tshirt_given", false);
+            gender = in.getStringExtra("gender");
+            amount = in.getIntExtra("amount", -1);
+        }catch(Exception e){
+            e.printStackTrace();
 
-        Intent in=getIntent();
-        tshirt_size=in.getStringExtra("tshirt_size");
-        user_hash = in.getStringExtra("user_hash");
-        user_roll = in.getStringExtra("user_roll");
-        fcard_given=in.getBooleanExtra("fcard_given", false);
-        tshirt_given = in.getBooleanExtra("tshirt_given", false);
-        gender=in.getStringExtra("gender");
-        amount=in.getStringExtra("amount");
-
+        }
         roll=(TextView)findViewById(R.id.Roll);
         if(!giving_fcard){
             fcard.setVisibility(View.INVISIBLE);
@@ -76,9 +78,9 @@ public class Success extends Activity {
                tshirt.setClickable(false);
            }
         }
-        roll.setText("Roll NO: "+user_roll);
+        roll.setText("User Id: "+user_id);
         tshirt.setText("TSHIRT :"+tshirt_size);
-        if(amount.equals("550")){
+        if(amount==550){
             tshirt.setVisibility(View.INVISIBLE);
             tshirt.setClickable(false);
         }
@@ -122,11 +124,11 @@ public class Success extends Activity {
         try {
 
             // the POST parameters:
-            params.put("user_roll", user_roll);
+            params.put("user_id", user_id);
             params.put("user_hash", user_hash);
             params.put("auth_pin", auth_pin);
             params.put("type", type);
-            Log.d("debug","user_roll: "+user_roll+"user_hash:"+user_hash+"auth_pin :"+auth_pin+"type :"+type+"given :"+1);
+            Log.d("debug","user_id: "+user_id+"user_hash:"+user_hash+"auth_pin :"+auth_pin+"type :"+type+"given :"+1);
             if (type.equals("tshirt")) {
                 if (tshirt_given) {
                     params.put("given", 0);
@@ -147,16 +149,16 @@ public class Success extends Activity {
         }
 
         String api=getString(R.string.apiUrl);
-        JsonObjectRequest postRequest = new JsonObjectRequest("https://"+api+"/tshirt/update",params,
+        JsonObjectRequest postRequest = new JsonObjectRequest("http://"+api+"/tshirt/update",params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject jsonResponse) {
 
                         try {
                             String temp_type=type;
-                            int status = jsonResponse.getInt("status");
+                            int status = jsonResponse.getInt("status_code");
 
-                            if(status==2){
+                            if(status==200){
                                 Toast.makeText(getApplicationContext(),"Updated",Toast.LENGTH_SHORT).show();
                                 if(type.equals("tshirt")){
                                     if(!tshirt_given) {
@@ -172,18 +174,8 @@ public class Success extends Activity {
                                 pDialog.dismiss();
                                 return;
                             }
-                            else if(status==3){
-                                String data=jsonResponse.getString("data");
-                                Toast.makeText(getApplicationContext(),data,Toast.LENGTH_SHORT).show();
-                                pDialog.dismiss();
-                                return;
-                            }
-                            else if(status==0){
-                                Toast.makeText(getApplicationContext(),"User not registered",Toast.LENGTH_SHORT).show();
-                                pDialog.dismiss();
-                                return;
-                            }
                             else{
+                                String data=jsonResponse.getString("message");
                                 Toast.makeText(getApplicationContext(),"Incorrect credentials",Toast.LENGTH_SHORT).show();
                                 pDialog.dismiss();
                                 return;

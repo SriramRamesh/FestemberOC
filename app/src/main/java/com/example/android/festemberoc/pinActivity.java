@@ -98,7 +98,7 @@ public class pinActivity extends AppCompatActivity {
         pDialog.show();
         String api=getString(R.string.apiUrl);
 
-        StringRequest postRequest = new StringRequest(Request.Method.POST, "https://"+api+"/tshirt/auth",
+        StringRequest postRequest = new StringRequest(Request.Method.POST, "http://"+api+"/admin/oc/authpin",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -106,10 +106,10 @@ public class pinActivity extends AppCompatActivity {
 
 
                             JSONObject jsonResponse = new JSONObject(response);
-                            int status = jsonResponse.getInt("status");
+                            int status = jsonResponse.getInt("status_code");
                             pDialog.dismiss();
 
-                            if(status==1) {
+                            if(status==200) {
                                 Toast.makeText(getApplicationContext(), "Authenticated", Toast.LENGTH_SHORT).show();
                                 sharedPreferences = getSharedPreferences("User Details", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -124,7 +124,7 @@ public class pinActivity extends AppCompatActivity {
 
                             }
                             else{
-                                String data=jsonResponse.getString("data");
+                                String data=jsonResponse.getString("message");
                                 Toast.makeText(pinActivity.this, data, Toast.LENGTH_SHORT).show();
                                 return;
 
