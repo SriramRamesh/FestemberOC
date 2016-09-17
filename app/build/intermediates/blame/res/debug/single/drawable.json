@@ -44,6 +44,10 @@
         "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.0/res/drawable/abc_btn_check_material.xml"
     },
     {
+        "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/drawable/festember_logo2.png",
+        "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/drawable/festember_logo2.png"
+    },
+    {
         "merged": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/build/intermediates/res/merged/debug/drawable/festember_poly_logo.png",
         "source": "/Users/sriramramesh/AndroidStudioProjects/FestemberOC/app/src/main/res/drawable/festember_poly_logo.png"
     },

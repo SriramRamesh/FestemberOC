@@ -122,7 +122,7 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
         };
         runnable.run();
 */
-        new CountDownTimer(3000, 1000) {
+        new CountDownTimer(4000, 1000) {
 
             public void onTick(long millisUntilFinished) {
 
@@ -236,26 +236,6 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
                                 gender=data.getString("gender");
                                 amount=data.getInt ("amount");
                                 //TODO: Change the shirt sizes
-                                if(OC_gender.equals("male")){
-                                    if(!(size.equals("No"))) {
-                                        if(size.equals("S")){
-                                            if(!(tshirt_size.equals("S")||tshirt_size.equals("XXL"))){
-                                                Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
-                                                //new update_QRboolean().execute();
-                                                QRcoderead=false;
-                                                pDialog.dismiss();
-                                                return;
-                                            }
-                                        }
-                                        else if (!(size.equals(tshirt_size))) {
-                                            Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
-                                            //new update_QRboolean().execute();
-                                            pDialog.dismiss();
-                                            QRcoderead=false;
-                                            return;
-                                        }
-                                    }
-                                }
                                 if(amount==550){
                                     pDialog.dismiss();
                                     QRcoderead=false;
@@ -274,12 +254,33 @@ public class QRscanner extends Activity implements QRCodeReaderView.OnQRCodeRead
 
 
                                 }
-                                if(!(OC_gender.equals(gender))){
-                                    Toast.makeText(getApplicationContext(),"Registered gender : "+gender,Toast.LENGTH_SHORT).show();
-                                    pDialog.dismiss();
-                                    QRcoderead=false;
-                                    //new update_QRboolean().execute();
-                                    return;
+                                else {
+                                    if (OC_gender.equals("male")) {
+                                        if (!(size.equals("No"))) {
+                                            if (size.equals("S")) {
+                                                if (!(tshirt_size.equals("S") || tshirt_size.equals("XXL"))) {
+                                                    Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
+                                                    //new update_QRboolean().execute();
+                                                    QRcoderead = false;
+                                                    pDialog.dismiss();
+                                                    return;
+                                                }
+                                            } else if (!(size.equals(tshirt_size))) {
+                                                Toast.makeText(getApplicationContext(), "Wrong tshirt Size\n" + "Actual: " + tshirt_size, Toast.LENGTH_SHORT).show();
+                                                //new update_QRboolean().execute();
+                                                pDialog.dismiss();
+                                                QRcoderead = false;
+                                                return;
+                                            }
+                                        }
+                                    }
+                                    if (!(OC_gender.equals(gender))) {
+                                        Toast.makeText(getApplicationContext(), "Registered gender : " + gender, Toast.LENGTH_SHORT).show();
+                                        pDialog.dismiss();
+                                        QRcoderead = false;
+                                        //new update_QRboolean().execute();
+                                        return;
+                                    }
                                 }
                                 pDialog.dismiss();
                                 QRcoderead=false;

@@ -424,9 +424,10 @@ int drawable abc_textfield_default_mtrl_alpha 0x7f02003a
 int drawable abc_textfield_search_activated_mtrl_alpha 0x7f02003b
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f02003c
 int drawable abc_textfield_search_material 0x7f02003d
-int drawable festember_poly_logo 0x7f02003e
-int drawable notification_template_icon_bg 0x7f020040
-int drawable red_line 0x7f02003f
+int drawable festember_logo2 0x7f02003e
+int drawable festember_poly_logo 0x7f02003f
+int drawable notification_template_icon_bg 0x7f020041
+int drawable red_line 0x7f020040
 int id Pin 0x7f0c0052
 int id Roll 0x7f0c0064
 int id XLarge 0x7f0c0060
